@@ -21,19 +21,19 @@ Extract package:
 
 Run the build script:
 
-    cd nopeos
+    cd nopeos-master
     ./build.sh
 
 Run in QEMU:
 
     ./run.sh
 
+Stop emulation by pressing ESC.
+
 Download Pre-Compiled ISO Image
 ===============================
 Pre-compiled ISO image for use with physical PC or virtualization tool 
-(like VMware Player) can be downloaded here:
-
-    [Nope OS v0.1 ISO](http://nope.se/download/nopeos/nopeos-0.1.iso)
+(like VMware Player): [Nope OS v0.1 ISO](http://nope.se/download/nopeos/nopeos-0.1.iso)
 
 Design Notes
 ============
