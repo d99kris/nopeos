@@ -5,6 +5,7 @@ CFLAGS="-m32 -Wall -O -fstrength-reduce -fomit-frame-pointer          \
         -finline-functions -nostdinc -fno-builtin -ffreestanding      \
         -I./bkerndev/include -I./misc/include                         \
         -I./tinybasic/include -c"
+mkdir -p output &&                                                    \
 cd src &&                                                             \
 nasm -f elf32 -o start.o       bkerndev/start.asm &&                  \
 gcc ${CFLAGS} -o main.o        bkerndev/main.c &&                     \
