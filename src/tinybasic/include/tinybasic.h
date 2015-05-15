@@ -1,0 +1,2 @@
+void StartTinyBasic(char* ILtext);
+

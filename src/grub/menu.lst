@@ -1,0 +1,6 @@
+default 0
+timeout 0
+
+title bootk64
+kernel /boot/kernel.bin
+
