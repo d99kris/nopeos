@@ -11,11 +11,15 @@ x86 compatibles.
 
 Compilation & Usage
 ===================
+Pre-requisites (Ubuntu):
+
+    sudo apt install git nasm build-essential qemu-system-x86
+
 Download:
 
     git clone https://github.com/d99kris/nopeos && cd nopeos
 
-Run the build script:
+Build:
 
     ./build.sh
 
@@ -38,8 +42,7 @@ The implementation is based on [bkerndev - Bran's Kernel Development Tutorial](h
 
 License
 =======
-Refer to each component's LICENSE file in their respective subdirectory under
-src.
+Nope OS is distributed under GPLv2 license. See LICENSE file.
 
 Keywords
 ========
