@@ -11,17 +11,12 @@ x86 compatibles.
 
 Compilation & Usage
 ===================
-Download the source code package:
+Download:
 
-    wget https://github.com/d99kris/nopeos/archive/master.zip
-
-Extract package:
-
-    unzip master.zip
+    git clone https://github.com/d99kris/nopeos && cd nopeos
 
 Run the build script:
 
-    cd nopeos-master
     ./build.sh
 
 Run in QEMU:
