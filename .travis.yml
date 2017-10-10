@@ -10,7 +10,7 @@ os:
 install:
   - if [ $TRAVIS_OS_NAME = linux ]; then
       sudo apt update;
-      sudo apt -y install nasm qemu-system-x86;
+      sudo apt -y install nasm qemu-system-x86 mkisofs;
     fi
 
 script:
