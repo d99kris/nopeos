@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Build kernel
-CFLAGS="-m32 -Wall -O -fstrength-reduce -fomit-frame-pointer          \
+CFLAGS="-m32 -Wall -O -fno-pie -fstrength-reduce -fomit-frame-pointer \
         -finline-functions -nostdinc -fno-builtin -ffreestanding      \
         -I./bkerndev/include -I./misc/include                         \
         -I./tinybasic/include -c"
