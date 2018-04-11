@@ -39,7 +39,7 @@ Download Pre-Compiled ISO Image
 Pre-compiled ISO image for use with physical PC or virtualization tool 
 (like VMware Player): 
 
-[Nope OS v0.1 ISO](http://nope.se/download/nopeos/nopeos-0.1.iso)
+[Nope OS v0.1 ISO](https://github.com/d99kris/nopeos/releases/download/v0.1/nopeos-0.1.iso)
 
 Design Notes
 ============
