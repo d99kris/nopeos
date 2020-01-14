@@ -3,7 +3,7 @@ Nope OS
 
 | **Linux** |
 |-----------|
-| [![Build status](https://travis-ci.org/d99kris/nopeos.svg?branch=master)](https://travis-ci.org/d99kris/nopeos) |
+| [![Build status](https://travis-ci.com/d99kris/nopeos.svg?branch=master)](https://travis-ci.com/d99kris/nopeos) |
 
 Nope OS is a simple OS kernel bundled with a BASIC interpreter, bringing 
 back the 80s home computing feeling.
