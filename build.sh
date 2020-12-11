@@ -34,10 +34,12 @@ if [ "${?}" != "0" ]; then
 fi
 
 # Build tags
-etags -o ./TAGS `find src -regex ".*\.[cha]\(sm\)?" -print`
-if [ "${?}" != "0" ]; then
-  echo "Etags failed, exiting."
-  exit 1
+if [[ -x "$(command -v etags)" ]]; then
+  etags -o ./TAGS `find src -regex ".*\.[cha]\(sm\)?" -print`
+  if [ "${?}" != "0" ]; then
+    echo "Etags failed, exiting."
+    exit 1
+  fi
 fi
 
 # Create ISO image
