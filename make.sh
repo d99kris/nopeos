@@ -70,7 +70,7 @@ if [[ "${DEPS}" == "1" ]]; then
   if [ "${OS}" == "Linux" ]; then
     DISTRO="$(lsb_release -i | awk -F':\t' '{print $2}')"
     if [[ "${DISTRO}" == "Ubuntu" ]]; then
-      sudo apt update && sudo apt -y install nasm build-essential qemu-system-x86 mkisofs || exiterr "deps failed (linux), exiting."
+      sudo apt update && sudo apt -y install nasm build-essential qemu-system-x86 mkisofs kpartx || exiterr "deps failed (linux), exiting."
     else
       exiterr "deps failed (unsupported linux distro ${DISTRO}), exiting."
     fi
@@ -83,7 +83,7 @@ fi
 
 # build
 if [[ "${BUILD}" == "1" ]]; then
-  ./build.sh || exiterr "build failed, exiting."
+  ./build.sh -i -y || exiterr "build failed, exiting."
 fi
 
 # tests

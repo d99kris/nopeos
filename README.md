@@ -24,7 +24,7 @@ Download:
 
     git clone https://github.com/d99kris/nopeos && cd nopeos
 
-Build:
+Build (outputs `kernel.bin` and `kernel.iso`):
 
     ./build.sh
 
@@ -34,12 +34,26 @@ Run in QEMU:
 
 Stop emulation by pressing ESC.
 
-Download Pre-Compiled ISO Image
-===============================
-Pre-compiled ISO image for use with physical PC or virtualization tool 
-(like VMware Player): 
+Optionally build and generate img disk image (`kernel.img`):
 
-[Nope OS v0.1 ISO](https://github.com/d99kris/nopeos/releases/download/v0.1/nopeos-0.1.iso)
+    ./build.sh -i
+
+Download Pre-Compiled Disk Images
+=================================
+Download links:
+- [Nope OS v0.1 IMG](https://github.com/d99kris/nopeos/releases/download/v0.1/nopeos-0.1.img) (2MB)
+- [Nope OS v0.1 ISO](https://github.com/d99kris/nopeos/releases/download/v0.1/nopeos-0.1.iso) (0.5MB)
+
+These disk images may be used in a virtualized environment or on a physical
+machine.
+
+**Warning:** For usage on a physical machine, take note that Nope OS is just a
+proof-of-concept and may contain bugs that could corrupt your system.
+
+Booting a Physical Machine from USB Drive
+-----------------------------------------
+Download the IMG disk image above and use for example `dd` or
+[balenaEtcher](https://www.balena.io/etcher) to write the image to a drive.
 
 Design Notes
 ============
