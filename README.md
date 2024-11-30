@@ -5,8 +5,10 @@ Nope OS
 |-----------|
 | [![Linux](https://github.com/d99kris/nopeos/workflows/Linux/badge.svg)](https://github.com/d99kris/nopeos/actions?query=workflow%3ALinux) |
 
-Nope OS is a simple OS kernel bundled with a BASIC interpreter, bringing 
+Nope OS is a simple OS kernel bundled with a BASIC interpreter, bringing
 back the 80s home computing feeling.
+
+Try Nope OS in the browser at [https://copy.sh/v86/?profile=nopeos](https://copy.sh/v86/?profile=nopeos)
 
 ![Nope OS Screenshot](/doc/nopeos-helloworld.png)
 
