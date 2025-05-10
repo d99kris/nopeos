@@ -16,6 +16,12 @@ Supported Platforms
 ===================
 x86 compatibles.
 
+Project Scope
+=============
+Nope OS is a minimal bootable BASIC interpreter with no device support for
+I/O (disk, serial, audio, network, etc) except for keyboard input and text mode
+VGA display.
+
 Compilation & Usage
 ===================
 Pre-requisites (Ubuntu):
@@ -59,7 +65,10 @@ Download the IMG disk image above and use for example `dd` or
 
 Design Notes
 ============
-The implementation is based on [bkerndev - Bran's Kernel Development Tutorial](http://www.osdever.net/bkerndev/Docs/title.htm) and the [TinyBasic interpreter](http://www.ittybittycomputers.com/IttyBitty/TinyBasic/).
+The implementation is based on
+[bkerndev - Bran's Kernel Development Tutorial](http://www.osdever.net/bkerndev/Docs/title.htm)
+and the
+[TinyBasic interpreter](http://www.ittybittycomputers.com/IttyBitty/TinyBasic/).
 
 License
 =======
