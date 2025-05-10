@@ -2,7 +2,7 @@
 
 # make.sh
 #
-# Copyright (C) 2020 Kristofer Berggren
+# Copyright (C) 2020-2025 Kristofer Berggren
 # All rights reserved.
 #
 # See LICENSE for redistribution information.
@@ -70,7 +70,13 @@ if [[ "${DEPS}" == "1" ]]; then
   if [ "${OS}" == "Linux" ]; then
     DISTRO="$(lsb_release -i | awk -F':\t' '{print $2}')"
     if [[ "${DISTRO}" == "Ubuntu" ]]; then
-      sudo apt update && sudo apt -y install nasm build-essential qemu-system-x86 mkisofs kpartx || exiterr "deps failed (linux), exiting."
+      if [[ "$(uname -m)" == "x86_64" ]]; then
+        sudo apt update && sudo apt -y install nasm build-essential qemu-system-x86 mkisofs kpartx || exiterr "deps failed (linux), exiting."
+      elif [[ "$(uname -m)" == "aarch64" ]]; then
+        sudo apt -y install nasm gcc-x86-64-linux-gnu qemu-system-x86 mkisofs kpartx
+      else
+        exiterr "deps failed (unsupported arch $(uname -m)), exiting."
+      fi
     else
       exiterr "deps failed (unsupported linux distro ${DISTRO}), exiting."
     fi
@@ -83,7 +89,11 @@ fi
 
 # build
 if [[ "${BUILD}" == "1" ]]; then
-  ./build.sh -i -y || exiterr "build failed, exiting."
+  if [[ "$(uname -m)" == "x86_64" ]]; then
+    ./build.sh -i -y || exiterr "build failed, exiting."
+  else
+    ./build.sh || exiterr "build failed, exiting."
+  fi
 fi
 
 # tests

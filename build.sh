@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# Host platform specifics
+if [[ "$(uname -m)" == "x86_64" ]]; then
+  CC="cc"
+  LD="ld"
+elif [[ "$(uname -m)" == "aarch64" ]]; then
+  CC="x86_64-linux-gnu-gcc"
+  LD="x86_64-linux-gnu-ld"
+else
+  echo "unsupported arch $(uname -m), exiting."
+  exit 1
+fi
+
 # Build kernel
 CFLAGS="-m32 -Wall -O -fno-pie -fstrength-reduce -fomit-frame-pointer \
         -finline-functions -nostdinc -fno-builtin -ffreestanding      \
@@ -7,22 +19,22 @@ CFLAGS="-m32 -Wall -O -fno-pie -fstrength-reduce -fomit-frame-pointer \
         -I./tinybasic/include -c"
 mkdir -p build &&                                                     \
 cd src &&                                                             \
-nasm -f elf32 -o start.o       bkerndev/start.asm &&                  \
-gcc ${CFLAGS} -o main.o        bkerndev/main.c &&                     \
-gcc ${CFLAGS} -o scrn.o        bkerndev/scrn.c &&                     \
-gcc ${CFLAGS} -o gdt.o         bkerndev/gdt.c &&                      \
-gcc ${CFLAGS} -o idt.o         bkerndev/idt.c &&                      \
-gcc ${CFLAGS} -o isrs.o        bkerndev/isrs.c &&                     \
-gcc ${CFLAGS} -o irq.o         bkerndev/irq.c &&                      \
-gcc ${CFLAGS} -o timer.o       bkerndev/timer.c &&                    \
-gcc ${CFLAGS} -o kb.o          bkerndev/kb.c &&                       \
-gcc ${CFLAGS} -o kbbuf.o       misc/kbbuf.c &&                        \
-gcc ${CFLAGS} -o unistd.o      misc/unistd.c &&                       \
-gcc ${CFLAGS} -o stdio.o       misc/stdio.c &&                        \
-gcc ${CFLAGS} -o stdlib.o      misc/stdlib.c &&                       \
-gcc ${CFLAGS} -o string.o      misc/string.c &&                       \
-gcc ${CFLAGS} -o tinybasic.o   tinybasic/tinybasic.c &&               \
-ld -nostdlib -m elf_i386 -T bkerndev/link.ld                          \
+nasm -f elf32 -o start.o         bkerndev/start.asm &&                \
+${CC} ${CFLAGS} -o main.o        bkerndev/main.c &&                   \
+${CC} ${CFLAGS} -o scrn.o        bkerndev/scrn.c &&                   \
+${CC} ${CFLAGS} -o gdt.o         bkerndev/gdt.c &&                    \
+${CC} ${CFLAGS} -o idt.o         bkerndev/idt.c &&                    \
+${CC} ${CFLAGS} -o isrs.o        bkerndev/isrs.c &&                   \
+${CC} ${CFLAGS} -o irq.o         bkerndev/irq.c &&                    \
+${CC} ${CFLAGS} -o timer.o       bkerndev/timer.c &&                  \
+${CC} ${CFLAGS} -o kb.o          bkerndev/kb.c &&                     \
+${CC} ${CFLAGS} -o kbbuf.o       misc/kbbuf.c &&                      \
+${CC} ${CFLAGS} -o unistd.o      misc/unistd.c &&                     \
+${CC} ${CFLAGS} -o stdio.o       misc/stdio.c &&                      \
+${CC} ${CFLAGS} -o stdlib.o      misc/stdlib.c &&                     \
+${CC} ${CFLAGS} -o string.o      misc/string.c &&                     \
+${CC} ${CFLAGS} -o tinybasic.o   tinybasic/tinybasic.c &&             \
+${LD} -nostdlib -m elf_i386 -T bkerndev/link.ld                       \
   -o ../build/kernel.bin                                              \
   start.o main.o scrn.o gdt.o idt.o isrs.o irq.o timer.o              \
   kb.o kbbuf.o unistd.o stdio.o stdlib.o string.o tinybasic.o &&      \
