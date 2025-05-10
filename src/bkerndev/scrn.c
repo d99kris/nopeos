@@ -173,6 +173,10 @@ void init_video(void)
     outportb(0x03c9, 0x65 >> 2);
     outportb(0x03c9, 0xA4 >> 2);
 
+    /* Cursor shape block */
+    outportb(0x3d4, 0xa);
+    outportb(0x3d5, 0x0);
+
     settextcolor(0x03, 0x01);
     textmemptr = (unsigned short *)0xB8000;
     cls();
