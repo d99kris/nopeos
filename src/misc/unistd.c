@@ -1,7 +1,7 @@
 /*
  * unistd.c
  *
- * Copyright (c) 2015, Kristofer Berggren
+ * Copyright (c) 2015-2025 Kristofer Berggren
  * All rights reserved.
  *
  * See src/misc/LICENSE for license details.
@@ -40,7 +40,7 @@ void application_start(void)
   char* IL = (char *)0;
 
   puts("");
-  puts("    **** NOPE OS V0.1 (C) 2015 ****    ");
+  puts("    **** NOPE OS V0.2 (C) 2025 ****    ");
   puts("X86 CPU, BKERNDEV 2005, TINY BASIC 2004");
   puts("READY.");
 
