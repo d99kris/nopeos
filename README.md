@@ -49,8 +49,8 @@ Optionally build and generate img disk image (`kernel.img`):
 Download Pre-Compiled Disk Images
 =================================
 Download links:
-- [Nope OS v0.1 IMG](https://github.com/d99kris/nopeos/releases/download/v0.1/nopeos-0.1.img) (2MB)
-- [Nope OS v0.1 ISO](https://github.com/d99kris/nopeos/releases/download/v0.1/nopeos-0.1.iso) (0.5MB)
+- [Nope OS v0.2 IMG](https://github.com/d99kris/nopeos/releases/download/v0.2/nopeos-0.2.img) (2MB)
+- [Nope OS v0.2 ISO](https://github.com/d99kris/nopeos/releases/download/v0.2/nopeos-0.2.iso) (0.5MB)
 
 These disk images may be used in a virtualized environment or on a physical
 machine.
