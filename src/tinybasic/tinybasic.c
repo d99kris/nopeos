@@ -1,5 +1,8 @@
 /* Tiny Basic Intermediate Language Interpreter -- 2004 July 19 */
 
+/* Changes:                                                     */
+/* 2025 Jun 21 - Fix backspace handling                         */
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>  /* added 08 Oct 31 */
@@ -794,8 +797,10 @@ void Interp(void) {
             Debugging = (Debugging+DEBUGON)&1;  /* maybe toggle debug */
             ch = ' ';}                       /* convert tabs to space */
           else if (ch==(char)Core[BScode]) {        /* backspace code */
-            if (InLend>InLine) InLend--;    /* assume console already */
-            else {   /* backing up over front of line: just kill it.. */
+            if (InLend>InLine) {
+              InLend--;                     /* assume console already */
+              continue;          /* dont add backspace char to buffer */
+            } else { /* backing up over front of line: just kill it.. */
               Ouch('\r');
               break;}}
           else if (ch==(char)Core[CanCode]) {     /* cancel this line */

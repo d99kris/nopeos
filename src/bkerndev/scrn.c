@@ -90,7 +90,12 @@ void putch(char c)
     /* Handle a backspace, by moving the cursor back one space */
     if(c == 0x08)
     {
-        if(csr_x != 0) csr_x--;
+        if(csr_x != 0)
+        {
+            csr_x--;
+            where = textmemptr + (csr_y * 80 + csr_x);
+           *where = ' ' | att;	/* Character AND attributes: color */
+        }
     }
     /* Handles a tab by incrementing the cursor's x, but only
     *  to a point that will make it divisible by 8 */

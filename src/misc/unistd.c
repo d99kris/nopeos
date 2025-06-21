@@ -40,7 +40,7 @@ void application_start(void)
   char* IL = (char *)0;
 
   puts("");
-  puts("    **** NOPE OS V0.2 (C) 2025 ****    ");
+  puts("    **** NOPE OS V0.3 (C) 2025 ****    ");
   puts("X86 CPU, BKERNDEV 2005, TINY BASIC 2004");
   puts("READY.");
 
